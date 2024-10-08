@@ -1,4 +1,5 @@
 using System.Diagnostics;
+using System.Net.Sockets;
 using Microsoft.AspNetCore.Mvc;
 using Laboratorium1.Models;
 
@@ -34,7 +35,7 @@ public class HomeController : Controller
         return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
     }
 
-    public IActionResult Calculator(string op, double? a, double? b)
+    public IActionResult Calculator(Operator? op, double? a, double? b)
     {
         if (a is null || b is null)
         {
@@ -42,7 +43,7 @@ public class HomeController : Controller
             return View("CustomError");
         }
 
-        if (op != "add" || op != "sub" || op != "mul" || op != "div")
+        if (op is null)
         {
             ViewBag.ErrorMessage = "niedozwolone działanie";
             return View("CustomError");
@@ -53,23 +54,28 @@ public class HomeController : Controller
         ViewBag.b = b;
         switch (op)
         {
-            case "add":
+            case Operator.Add:
                 ViewBag.result = a + b;
                 ViewBag.op = "+";
                 break;
-            case "sub":
+            case Operator.Sub:
                 ViewBag.result = a - b;
                 ViewBag.op = "-";
                 break;
-            case "mul":
+            case Operator.Mul:
                 ViewBag.result = a * b;
                 ViewBag.op = "*";
                 break;
-            case "div":
+            case Operator.Div:
                 ViewBag.result = a / b;
                 ViewBag.op = ":";
                 break;
         }
         return View();
+    }
+
+    public enum Operator
+    {
+        Add, Sub, Mul, Div
     }
 }
