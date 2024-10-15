@@ -45,7 +45,12 @@ namespace Laboratorium1.Controllers
                     ViewBag.op = ":";
                     break;
             }
+            
 
+            return View();
+        }
+        public IActionResult Form()
+        {
             return View();
         }
 
