@@ -78,12 +78,5 @@ public class HomeController : Controller
     {
         Add, Sub, Mul, Div
     }
-    public IActionResult Result(Calculator model)
-    {
-        if (!model.IsValid())
-        {
-            return View("Error");
-        }
-        return View(model);
-    }
+    
 }
