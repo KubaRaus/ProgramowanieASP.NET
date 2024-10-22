@@ -10,4 +10,9 @@
       <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.6" />
     </ItemGroup>
 
+    <ItemGroup>
+      <AdditionalFiles Include="Views\Contact\Add.cshtml" />
+      <AdditionalFiles Include="Views\Contact\Index.cshtml" />
+    </ItemGroup>
+
 </Project>

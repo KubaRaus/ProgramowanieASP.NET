@@ -62,15 +62,7 @@ namespace Laboratorium1.Controllers
             Mul,
             Div
         }
-        [HttpPost]
-        public IActionResult Result([FromForm] Calculator model)
-        {
-            if (!model.IsValid())
-            {
-                return View("Error");
-            }
-            return View(model);
-        }
+        
         
         
 

@@ -1,0 +1,41 @@
+@model Laboratorium1.Models.ContactModel
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+<h2>Dodaj kontakt</h2>
+<form asp-action="Add">
+    <div class="mb-3">
+        <label class="form-label" asp-for="FirstName">Imię</label>
+        <input class="form-control" asp-for="FirstName"/>
+        <span asp-validation-for="FirstName" class ="text-danger"></span>
+        
+        
+    </div>
+    <div class="mb-3">
+        <label class="form-label" asp-for="LastName">Nazwisko</label>
+        <input class="form-control" asp-for="LastName"/>
+        <span asp-validation-for="LastName" class ="text-danger"></span>
+    </div>
+    
+    <div class="mb-3">
+        <label class="form-label" asp-for="Email">E-mail</label>
+        <input class="form-control" asp-for="Email"/>
+        <span asp-validation-for="Email" class ="text-danger"></span>
+    </div>
+    
+    <div class="mb-3">
+        <label class="form-label" asp-for="PhoneNumber">nr tel</label>
+        <input class="form-control" asp-for="PhoneNumber"/>
+        <span asp-validation-for="PhoneNumber" class ="text-danger"></span>
+    </div>
+    
+    <div class="mb-3">
+        <label class="form-label" asp-for="BirthDate">Data urodzenia</label>
+        <input class="form-control" asp-for="BirthDate"/>
+        <span asp-validation-for="BirthDate" class ="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-outline-primary">Dodaj</button>
+</form>
